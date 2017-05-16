@@ -24,7 +24,7 @@ class UserControllerTest extends TestCase
     public function testUsersAreCreatedOk()
     {
         // Prepare
-        Storage::fake('general');
+        Storage::fake('local');
 
         $faker = Factory::create();
         $user = [
@@ -49,6 +49,6 @@ class UserControllerTest extends TestCase
             'file' => 'olaqase.png',
         ]);
 
-        Storage::disk('general')->assertExists('olaqase.png');
+        Storage::disk('local')->assertExists('olaqase.png');
     }
 }
