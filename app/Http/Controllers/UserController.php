@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class Usercontroller extends Controller
@@ -34,7 +35,8 @@ class Usercontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create($request->only(['email', 'name', 'password', 'file']));
+        return ['created' => true];
     }
 
     /**
